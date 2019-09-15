@@ -4,7 +4,10 @@ const PREFIX = '!';
 var version = '1.0.0';
 bot.on('ready', () => {
     console.log('this bot is here');
+    bot.user.setActivity('youtube', { type: 'WATCHING'}).catch(console.error);
 })
+
+
 
 bot.on('guildMemberAdd', member => {
     const channel = member.guild.channels.find(channel => channel.name === "general");
