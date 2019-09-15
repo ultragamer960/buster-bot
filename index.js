@@ -22,6 +22,8 @@ bot.on('message', message=>{
     let args = message.content.substring(PREFIX.length).split(" ");
     
 
+//the minecraft role is member id is 613848083092078612
+
     switch(args[0]){
         case 'help':
             message.channel.send('some commands i have are \nPublic commands:\n!help\n!ping\nMod commands:\n!kick (user you want to kick)\n!ban (user you want to ban)\n!clear (number)\nMusic:\n coming soon!\n new commands will be added soon\n easier to read help box coming soon')
@@ -31,6 +33,9 @@ bot.on('message', message=>{
             break;
         case 'changelog':
             message.channel.send(':x: Error :x:')
+            break;
+        case 'pizza':
+            message.react('🍕')
             break;
             case 'kick':
                 if (!message.member.roles.find(r => r.id === "613847890531450995")) return message.channel.send('You do not have permissions to run this command')
