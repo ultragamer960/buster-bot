@@ -37,8 +37,10 @@ bot.on('message', message=>{
         case 'changelog':
             message.channel.send(':x: Error :x:')
             break;
+            const PIZZA = new Attachment('https://thestudentchannel.files.wordpress.com/2011/10/pizza_slice-60140003.jpg');
         case 'pizza':
             message.react('🍕')
+            message.channel.send(PIZZA)
             break;
             case 'kick':
                 if (!message.member.roles.find(r => r.id === "613847890531450995")) return message.channel.send('You do not have permissions to run this command')
