@@ -1,9 +1,8 @@
 const Discord = require('discord.js')
 const bot = new Discord.Client()
 const PREFIX = '!';
-var version = '1.0.0';
+var version = '1.1.0';
 var servers = {};
-const ytdl = require("ytdl-core");
 bot.on('ready', () => {
     console.log('this bot is here');
     bot.user.setActivity('youtube', { type: 'WATCHING'}).catch(console.error);
@@ -39,6 +38,9 @@ bot.on('message', message=>{
         case 'changelog':
             message.channel.send(':x: Error :x:')
             break;
+        case 'version':
+            message.channel.send('bot version ' + version)    
+        break;
         
         case 'pizza':
             message.react('🍕')
