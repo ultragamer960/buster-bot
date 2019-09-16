@@ -2,6 +2,8 @@ const Discord = require('discord.js')
 const bot = new Discord.Client()
 const PREFIX = '!';
 var version = '1.0.0';
+var servers = {};
+const ytdl = require("ytdl-core");
 bot.on('ready', () => {
     console.log('this bot is here');
     bot.user.setActivity('youtube', { type: 'WATCHING'}).catch(console.error);
@@ -86,6 +88,53 @@ bot.on('message', message=>{
             if(!args[1]) return message.reply('Please define second arg')
             message.channel.bulkDelete(args[1]);
             break;
+        case 'play':
+
+            function play(connection, message){
+                var server = servers[message.guild.id];
+
+                server.dispatcher = connection.playStream(ytdl(server.queue[0], {filter: "audioonly"}));
+
+                server.queue.shift();
+
+                server.dispatcher.on("end", function(){
+                    if(server,queue[0]){
+                        play(connection, message);
+                    }else {
+                        connection.disconnect();
+                    }
+                });
+            }
+
+            if(!args[1]){
+                message.channel.send('please provide a link to the music');
+                return;
+            }
+
+            if(!message.member.voiceChannel){
+                message.channel.send('You are not in a voice channel');
+                return;
+            }
+
+            if(!servers[message.guild.id]) servers[message.guild.id] = {
+                queue: []
+            }
+
+            var server = servers[message.guild.id];
+
+            server.queue.push(args[1]);
+
+            if(!message.guild.voiceChannel) message.member.voiceChannel.join().then(function(connection){
+
+            })
+
+            break;
+
+    
+
+            
+
+        
         
 
         
