@@ -9,6 +9,9 @@
   "author": "tacocat415",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.5.1"
+    "discord.js": "^11.5.1",
+    "ms": "^2.1.2",
+    "opusscript": "0.0.7",
+    "ytdl-core": "^0.29.7"
   }
 }
